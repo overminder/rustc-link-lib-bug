@@ -1,0 +1,7 @@
+target
+**/*.rs.bk
+Cargo.lock
+
+*.a
+*.o
+main
