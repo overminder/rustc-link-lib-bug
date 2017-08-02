@@ -1,5 +1,21 @@
 ## Targeting x86_64
 
+### rustc --version
+
+    rustc 1.19.0 (0ade33941 2017-07-17)
+
+and
+
+    rustc 1.21.0-nightly (37c7d0ebb 2017-07-31)
+
+### cargo --version
+
+    cargo 0.20.0 (a60d185c8 2017-07-13)
+
+and
+
+    cargo 0.22.0-nightly (305bc25d5 2017-07-28)
+
 ### clang --version
 
     clang version 3.8.0-2ubuntu3 (tags/RELEASE_380/final)

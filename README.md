@@ -7,7 +7,7 @@ Here is a minimal working example of the problem.
 ### Example Description
 
 Let's say you have two static libraries: `libfoo.a` and `libbar.a`, where
-the later depends a symbol from the former.
+the later depends on a symbol from the former.
 
 You are writing two FFI binding crates, `rust-foo-sys` and `rust-bar-sys` for these
 libraries. To do this, you print `cargo:rustc-link-lib={kind}={libname}` in
