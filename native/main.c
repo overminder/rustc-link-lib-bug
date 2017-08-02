@@ -1,5 +1,5 @@
-extern void bar1();
+extern void bar();
 
 int main() {
-  bar1();
+  bar();
 }

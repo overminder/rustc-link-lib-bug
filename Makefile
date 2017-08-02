@@ -1,5 +1,5 @@
-# Seems to only affect Linux but not OSX.
-TARGET = arm-linux-androideabi
+# Also works when cross compiling. 
+# TARGET = arm-linux-androideabi
 
 CFLAGS := -fPIC
 
@@ -22,14 +22,11 @@ test :
 clean :
 	rm native/*.a native/*.o native/main -f
 
-native/libfoo.a : native/libfoo.o
-	$(AR) cr $@ $^
-
-native/libbar.a : native/libbar.o
+%.a : %.o
 	$(AR) cr $@ $^
 
 %.o : %.c
 	$(CC) -c $^ $(CFLAGS) -o $@
 
-native/main : native/main.c native/libfoo.a native/libbar.a
+native/main : native/main.c $(LIBS)
 	$(CC) $< -Lnative -lbar -lfoo -o $@
