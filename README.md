@@ -42,3 +42,11 @@ cargo should fail with something like this:
     libbar.c:(.text+0xa): undefined reference to `foo'
     collect2: error: ld returned 1 exit status
 
+### Further Observation
+
+There are several individual tweaks that I found to be able to fix this problem but I couldn't understand why:
+
+- Set `rust-bar-sys`'s `cargo:rustc-link-lib` `kind` to be `static`.
+- Remove the `kind` option in `rust-foo-sys`'s `cargo:rustc-link-lib` flag.
+- Swap the `cargo:rustc-link-lib` flags in `rust-bar-sys` so that `libbar` comes before `libfoo`. ([e.g., swap the 3rd and the 4th line here](https://github.com/overminder/rustc-link-lib-bug/blob/3b8918554e047d700a7fec185c6c0bf9e9896e03/rust-bar-sys/build.rs))
+  * This does look like a typical static library link order issue...
