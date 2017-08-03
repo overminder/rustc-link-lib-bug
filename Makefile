@@ -2,6 +2,8 @@
 # TARGET = arm-linux-androideabi
 
 CFLAGS := -fPIC
+# LD := clang-4.0 -fuse-ld=lld
+LD := $(CC)
 
 ifneq ($(TARGET),)
 CARGO_FLAGS := --target=$(TARGET)
@@ -29,4 +31,4 @@ clean :
 	$(CC) -c $^ $(CFLAGS) -o $@
 
 native/main : native/main.c $(LIBS)
-	$(CC) $< -Lnative -lbar -lfoo -o $@
+	$(LD) $< -Lnative -lfoo -lbar -o $@

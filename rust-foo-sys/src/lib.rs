@@ -1,3 +1,5 @@
+#![no_std]
+
 extern {
     #[link_name = "foo"]
     pub fn cfoo();

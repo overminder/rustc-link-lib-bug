@@ -22,6 +22,7 @@ The said error occurs when you are building an executable that depends on
 
 This problem seems to only present when targeting ELF (using gcc or clang as
 the linker frontend, bfd or gold as the linker). Both x86_64 and arm targets are affected.
+[lld](https://lld.llvm.org/) however doesn't suffer from this.
 
 See the [detailed toolchain versions here](toolchain-versions.md).
 
@@ -49,4 +50,10 @@ There are several individual tweaks that I found to be able to fix this problem 
 - Set `rust-bar-sys`'s `cargo:rustc-link-lib` `kind` to be `static`.
 - Remove the `kind` option in `rust-foo-sys`'s `cargo:rustc-link-lib` flag.
 - Swap the `cargo:rustc-link-lib` flags in `rust-bar-sys` so that `libbar` comes before `libfoo`. ([e.g., swap the 3rd and the 4th line here](https://github.com/overminder/rustc-link-lib-bug/blob/3b8918554e047d700a7fec185c6c0bf9e9896e03/rust-bar-sys/build.rs))
-  * This does look like a typical static library link order issue...
+  * This does look like a typical static library link order issue. Indeed,
+  I suspect that `lld` works because it doesn't require the static libraries
+  to be passed in the correct order (this can be verified by changing the
+  5th line in [Makefile](Makefile) to use `lld` and `make native/main`)
+     
+
+

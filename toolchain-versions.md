@@ -16,9 +16,8 @@ and
 
     cargo 0.22.0-nightly (305bc25d5 2017-07-28)
 
-### clang --version
-
-    clang version 3.8.0-2ubuntu3 (tags/RELEASE_380/final)
+### clang-4.0 --version
+    clang version 4.0.0-1ubuntu1~16.04.1 (tags/RELEASE_400/rc1)
     Target: x86_64-pc-linux-gnu
     Thread model: posix
     InstalledDir: /usr/bin
@@ -44,6 +43,10 @@ and
     This program is free software; you may redistribute it under the terms of
     the GNU General Public License version 3 or (at your option) a later version.
     This program has absolutely no warranty.
+
+### ld.lld-4.0 --version
+    LLD 4.0.0
+
 
 ## Targeting arm-linux-androideabi
 

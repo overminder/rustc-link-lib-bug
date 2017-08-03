@@ -5,3 +5,4 @@ authors = ["Tim JIANG <p90eri@gmail.com>"]
 
 [dependencies]
 bar-sys = { path = "../rust-bar-sys" }
+libc = { version = "*", default-features = false }
